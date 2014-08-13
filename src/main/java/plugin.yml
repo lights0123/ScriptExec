@@ -1,6 +1,6 @@
 name: ScriptExec
 main: com.lights0123.ScriptExec.ScriptExec
-version: 0.0.1
+version: 0.2
 softdepend: [Vault]
 author: lights0123
 website: http://lights0123.com/ScriptExec

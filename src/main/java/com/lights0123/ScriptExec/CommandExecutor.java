@@ -44,7 +44,7 @@ public class CommandExecutor implements org.bukkit.command.CommandExecutor{
 						if(success){
 							sender.sendMessage(ChatColor.GREEN+"Success!");
 						}else{
-							sender.sendMessage(ChatColor.RED+"Uh oh. Something bad happened.");
+							sender.sendMessage(ChatColor.RED+"Uh oh. Something bad happened. Maybe the command/script "+plugin.getConfig().getString("scripts."+args[1]+".path")+" does not exist.");
 						}
 					}else{
 						sender.sendMessage(ChatColor.RED+"Uh oh. That script is not found! If you added it, run /scriptexec reload.");
