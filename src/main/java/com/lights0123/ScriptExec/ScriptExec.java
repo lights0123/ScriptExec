@@ -16,7 +16,7 @@ public final class ScriptExec extends JavaPlugin{
 				getServer().getPluginManager().disablePlugin(this);
 	            return;
 			}else{
-				getLogger().severe("Vault not found. All players will have permission to execute scripts!");
+				getLogger().warning("Vault not found. All players will have permission to execute scripts!");
 			}
 			hasPerms=false;
 		}else{
@@ -28,7 +28,7 @@ public final class ScriptExec extends JavaPlugin{
 		String.format("[%s] Disabled Version %s", getDescription().getName(), getDescription().getVersion());
 	}
     private boolean setupPermissions() {
-    	if (getServer().getPluginManager().getPlugin("Vault") == null) {
+    	if (getServer().getPluginManager().getPlugin("Vault")==null) {
             return false;
         }
         RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
