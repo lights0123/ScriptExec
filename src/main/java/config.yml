@@ -1,4 +1,4 @@
-# default config.yml - ScriptExec
+# default config.yml - ScriptExec by lights0123
 require-vault: true
 scripts:
   example:

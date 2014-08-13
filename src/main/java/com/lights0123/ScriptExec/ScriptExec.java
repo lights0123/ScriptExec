@@ -31,7 +31,7 @@ public final class ScriptExec extends JavaPlugin{
     	if (getServer().getPluginManager().getPlugin("Vault")==null) {
             return false;
         }
-        RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
+        RegisteredServiceProvider<Permission> rsp=getServer().getServicesManager().getRegistration(Permission.class);
         if (rsp == null) {
             return false;
         }
