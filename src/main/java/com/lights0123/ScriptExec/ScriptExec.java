@@ -22,7 +22,7 @@ public final class ScriptExec extends JavaPlugin{
 		}else{
 			hasPerms=true;
 		}
-		this.getCommand("se").setExecutor(new SeCommand(this));
+		this.getCommand("se").setExecutor(new CommandExecutor(this));
 	}
 	public void onDisable(){
 		String.format("[%s] Disabled Version %s", getDescription().getName(), getDescription().getVersion());
