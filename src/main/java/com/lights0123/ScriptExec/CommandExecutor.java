@@ -46,6 +46,8 @@ public class CommandExecutor implements org.bukkit.command.CommandExecutor{
 						}else{
 							sender.sendMessage(ChatColor.RED+"Uh oh. Something bad happened.");
 						}
+					}else{
+						sender.sendMessage(ChatColor.RED+"Uh oh. That script is not found! If you added it, run /scriptexec reload.");
 					}
 				}else{
 					sender.sendMessage(ChatColor.RED+"Sorry, but you do not have permission!");
