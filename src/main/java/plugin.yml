@@ -1,0 +1,27 @@
+name: ScriptExec
+main: com.lights0123.ScriptExec.ScriptExec
+version: 0.0.1
+softdepend: [Vault]
+author: lights0123
+website: http://lights0123.com/ScriptExec
+description: Execute shell commands through minecraft.
+commands:
+   se:
+      description: Reload, Execute, or get info about ScriptExec.
+      usage: /se OR /se reload OR /se execute <name>
+permissions:
+    ScriptExec.*:
+        description: Gives access to all ScriptExec commands.
+        children:
+            ScriptExec.info: true
+            ScriptExec.reload: true
+            ScriptExec.execute: true
+    ScriptExec.info:
+        description: Allows you to view info about ScriptExec.
+        default: true
+    ScriptExec.reload:
+        description: Allows you to reload the config.
+        default: op
+    ScriptExec.execute:
+        description: Executes a script.
+        default: op
