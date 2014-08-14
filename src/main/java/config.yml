@@ -3,4 +3,4 @@ require-vault: true
 scripts:
   example:
     path: ./example.sh
-    allow-params: true
+    allow-params: false
