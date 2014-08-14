@@ -3,7 +3,7 @@ main: com.lights0123.ScriptExec.ScriptExec
 version: 0.2.5
 softdepend: [Vault]
 author: lights0123
-website: http://lights0123.com/ScriptExec
+website: http://dev.bukkit.org/bukkit-plugins/scriptexec
 description: Execute shell commands through minecraft.
 commands:
    se:

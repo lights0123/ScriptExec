@@ -16,7 +16,7 @@ public class CommandExecutor implements org.bukkit.command.CommandExecutor{
 		if (cmd.getName().equalsIgnoreCase("se")) {
 			if(args.length==0){
 				if(perm(sender,"ScriptExec.info")){
-					sender.sendMessage(ChatColor.GOLD+"ScriptExec - a plugin by lights0123 to execute\nconsole commands on the server by in-game commands.\nView more information at "+ChatColor.BLUE+ChatColor.UNDERLINE+"http://lights0123.com/ScriptExec"+ChatColor.GOLD+"\n/se reload: reload the configuration.\n/se execute <name>: execute a script.");
+					sender.sendMessage(ChatColor.GOLD+"ScriptExec - a plugin by lights0123 to execute\nconsole commands on the server by in-game commands.\nView more information at "+ChatColor.BLUE+ChatColor.UNDERLINE+"http://dev.bukkit.org/bukkit-plugins/scriptexec"+ChatColor.GOLD+"\n/se reload: reload the configuration.\n/se execute <name>: execute a script.");
 				}else{
 					sender.sendMessage(ChatColor.RED+"Sorry, but you do not have permission!");
 				}
