@@ -29,12 +29,22 @@ public class CommandExecutor implements org.bukkit.command.CommandExecutor{
 					sender.sendMessage(ChatColor.RED+"Sorry, but you do not have permission!");
 				}
 				return true;
-			}else if(args.length==2&&args[0].equals("execute")){
+			}else if(args.length>1&&args[0].equals("execute")){
 				if(perm(sender,"ScriptExec.execute.*")||perm(sender,"ScriptExec.info"+args[1])){
 					String path=plugin.getConfig().getString("scripts."+args[1]+".path");
 					if(!(path==null)){
+						boolean params=args.length>2;
+						if(params&&!plugin.getConfig().getBoolean("scripts."+args[1]+".allow-params")){
+							sender.sendMessage("Parameters for the command "+plugin.getConfig().getString("scripts."+args[1]+".path")+" are not allowed.");
+							return true;
+						}
 						Runtime r = Runtime.getRuntime();
 						boolean success=true;
+						if(params){
+							for(int i=2;i<=args.length-1;i++){
+								path+=" "+args[i];
+							}
+						}
 						try {
 							r.exec(path);
 						} catch (IOException e) {
@@ -44,7 +54,7 @@ public class CommandExecutor implements org.bukkit.command.CommandExecutor{
 						if(success){
 							sender.sendMessage(ChatColor.GREEN+"Success!");
 						}else{
-							sender.sendMessage(ChatColor.RED+"Uh oh. Something bad happened. Maybe the command/script "+plugin.getConfig().getString("scripts."+args[1]+".path")+" does not exist.");
+							sender.sendMessage(ChatColor.RED+"Uh oh. Something bad happened. Maybe the command/script\n"+plugin.getConfig().getString("scripts."+args[1]+".path")+" does not exist.");
 						}
 					}else{
 						sender.sendMessage(ChatColor.RED+"Uh oh. That script is not found! If you added it, run /scriptexec reload.");
