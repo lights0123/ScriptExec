@@ -6,7 +6,8 @@ author: lights0123
 website: http://dev.bukkit.org/bukkit-plugins/scriptexec
 description: Execute shell commands through minecraft.
 commands:
-   se:
+   scriptexec:
+      aliases: se
       description: Reload, Execute, or get info about ScriptExec.
       usage: /se OR /se reload OR /se execute <name>
 permissions:
