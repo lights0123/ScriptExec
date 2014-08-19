@@ -11,18 +11,18 @@ commands:
       description: Reload, Execute, or get info about ScriptExec.
       usage: /se OR /se reload OR /se execute <name>
 permissions:
-    ScriptExec.*:
+    scriptexec.*:
         description: Gives access to all ScriptExec commands.
         children:
-            ScriptExec.info: true
-            ScriptExec.reload: true
-            ScriptExec.execute: true
-    ScriptExec.info:
+            scriptexec.info: true
+            scriptexec.reload: true
+            scriptexec.execute: true
+    scriptexec.info:
         description: Allows you to view info about ScriptExec.
         default: true
-    ScriptExec.reload:
+    scriptexec.reload:
         description: Allows you to reload the config.
         default: op
-    ScriptExec.execute:
+    scriptexec.execute:
         description: Executes a script.
         default: op

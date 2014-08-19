@@ -34,8 +34,8 @@ public class CommandExecutor implements org.bukkit.command.CommandExecutor{
 					String path=plugin.getConfig().getString("scripts."+args[1]+".path");
 					if(!(path==null)){
 						boolean params=args.length>2;
-						if(params&&!plugin.getConfig().getBoolean("scripts."+args[1]+".allow-params")){
-							sender.sendMessage("Parameters for the command "+plugin.getConfig().getString("scripts."+args[1]+".path")+" are not allowed.");
+						if(params&&!(perm(sender,"ScriptExec.execute.*.params")&&!perm(sender,"ScriptExec.execute."+args[1]+".params"))){
+							sender.sendMessage("You do not have permission to use parameters for the command\n"+plugin.getConfig().getString("scripts."+args[1]+".path"));
 							return true;
 						}
 						Runtime r = Runtime.getRuntime();
@@ -43,6 +43,9 @@ public class CommandExecutor implements org.bukkit.command.CommandExecutor{
 						if(params){
 							for(int i=2;i<=args.length-1;i++){
 								path+=" "+args[i];
+								if(args[i].equals("|")||args[i].equals("&")||args[i].equals("&&")||args[i].equals("||")||args[i].equals(">")||args[i].equals(">>")){
+									sender.sendMessage(ChatColor.RED+"Sorry, but you cannot run multiple commands or output into a file.");
+								}
 							}
 						}
 						try {
