@@ -6,6 +6,32 @@
   <build>
       <plugins>
           <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <artifactSet>
+                        <includes>
+                            <include>org.mcstats.*:*</include>
+                        </includes>
+                    </artifactSet>
+                    <relocations>
+                        <relocation>
+                            <pattern>org.mcstats</pattern>
+                            <shadedPattern>com.lights0123.ScriptExec</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+           </plugin>
+          <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
               <configuration>
@@ -17,12 +43,16 @@
   </build>
   <repositories>
        <repository>
+           <id>Plugin Metrics</id>
+           <url>http://repo.mcstats.org/content/repositories/public</url>
+       </repository>
+       <repository>
            <id>bukkit-repo</id>
            <url>http://repo.bukkit.org/content/groups/public/</url>
        </repository>
        <repository>
-            <id>vault-repo</id>
-            <url>http://nexus.theyeticave.net/content/repositories/pub_releases</url>
+           <id>vault-repo</id>
+           <url>http://nexus.theyeticave.net/content/repositories/pub_releases</url>
         </repository>
   </repositories>
   <dependencies>
@@ -32,6 +62,12 @@
            <version>1.7.2-R0.3</version>
            <type>jar</type>
            <scope>provided</scope>
+       </dependency>
+       <dependency>
+           <groupId>org.mcstats.bukkit</groupId>
+           <artifactId>metrics-lite</artifactId>
+           <version>R7</version>
+           <scope>compile</scope>
        </dependency>
        <dependency>
             <groupId>net.milkbowl.vault</groupId>
