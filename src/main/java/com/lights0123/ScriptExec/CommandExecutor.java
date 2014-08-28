@@ -43,8 +43,12 @@ public class CommandExecutor implements org.bukkit.command.CommandExecutor{
 						if(params){
 							for(int i=2;i<=args.length-1;i++){
 								path+=" "+args[i];
-								if(args[i].contains("|")||args[i].contains("&")||args[i].contains("&&")||args[i].contains("||")||args[i].contains(">")||args[i].contains(">>")){
+								if(args[i].equals("|")||args[i].equals("&")||args[i].equals("&&")||args[i].equals("||")||args[i].equals(">")||args[i].equals(">>")){
 									sender.sendMessage(ChatColor.RED+"Sorry, but you cannot run multiple commands or output into a file.");
+									return true;
+								}
+								if(args[i].contains(" ")){
+									sender.sendMessage(ChatColor.RED+"Sorry, but you cannot put commands in quotes.");
 									return true;
 								}
 							}
