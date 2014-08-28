@@ -2,13 +2,21 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.lights0123</groupId>
   <artifactId>ScriptExec</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.3</version>
   <build>
       <plugins>
           <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <configuration>
+                  <source>1.7</source>
+                  <target>1.7</target>
+              </configuration>
+          </plugin>
+          <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>2.3</version>
+                <version>1.5</version>
                 <configuration>
                     <artifactSet>
                         <includes>
@@ -18,7 +26,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.mcstats</pattern>
-                            <shadedPattern>com.lights0123.ScriptExec</shadedPattern>
+                            <shadedPattern>me.author.pluginname</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -30,15 +38,7 @@
                         </goals>
                     </execution>
                 </executions>
-           </plugin>
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-              <configuration>
-                  <source>1.7</source>
-                  <target>1.7</target>
-              </configuration>
-          </plugin>
+            </plugin>
       </plugins>
   </build>
   <repositories>
@@ -65,7 +65,7 @@
        </dependency>
        <dependency>
            <groupId>org.mcstats.bukkit</groupId>
-           <artifactId>metrics-lite</artifactId>
+           <artifactId>metrics</artifactId>
            <version>R7</version>
            <scope>compile</scope>
        </dependency>

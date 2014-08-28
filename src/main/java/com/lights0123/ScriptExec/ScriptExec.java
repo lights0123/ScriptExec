@@ -5,7 +5,7 @@ import net.milkbowl.vault.permission.Permission;
 
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.mcstats.MetricsLite;
+import org.mcstats.Metrics;
 public final class ScriptExec extends JavaPlugin{
 	public static boolean hasPerms=false;
 	public static Permission perms;
@@ -25,15 +25,12 @@ public final class ScriptExec extends JavaPlugin{
 			hasPerms=false;
 		}else{
 			hasPerms=true;
-		}
-		if(getConfig().getBoolean("enable-metrics")){
-			try {
-				MetricsLite metrics = new MetricsLite(this);
-	        	metrics.start();
-			} catch (IOException e) {
-	    		//Metrics not available :-(
-	    	}
-		}
+		}try {
+			Metrics metrics = new Metrics(this);
+	        metrics.start();
+		} catch (IOException e) {
+	    	//Metrics not available :-(
+	    }
 		this.getCommand("se").setExecutor(new CommandExecutor(this));
 	}
 	public void onDisable(){
