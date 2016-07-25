@@ -1,6 +1,6 @@
 name: ScriptExec
 main: com.lights0123.ScriptExec.ScriptExec
-version: 0.2.8
+version: 0.3
 softdepend: [Vault]
 author: lights0123
 website: http://dev.bukkit.org/bukkit-plugins/scriptexec
