@@ -34,7 +34,7 @@ public class CommandExecutor implements org.bukkit.command.CommandExecutor{
 					String path=plugin.getConfig().getString("scripts."+args[1]+".path");
 					if(!(path==null)){
 						boolean params=args.length>2;
-						if(params&&!(perm(sender,"ScriptExec.execute.*.params")&&!perm(sender,"ScriptExec.execute."+args[1]+".params"))){
+						if(params&&(!perm(sender,"ScriptExec.execute.*.params")&&!perm(sender,"ScriptExec.execute."+args[1]+".params"))){
 							sender.sendMessage("You do not have permission to use parameters for the command\n"+plugin.getConfig().getString("scripts."+args[1]+".path"));
 							return true;
 						}

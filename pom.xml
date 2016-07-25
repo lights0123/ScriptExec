@@ -18,17 +18,6 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>1.5</version>
                 <configuration>
-                    <artifactSet>
-                        <includes>
-                            <include>org.mcstats.*:*</include>
-                        </includes>
-                    </artifactSet>
-                    <relocations>
-                        <relocation>
-                            <pattern>org.mcstats</pattern>
-                            <shadedPattern>me.author.pluginname</shadedPattern>
-                        </relocation>
-                    </relocations>
                 </configuration>
                 <executions>
                     <execution>
@@ -43,12 +32,8 @@
   </build>
   <repositories>
        <repository>
-           <id>Plugin Metrics</id>
-           <url>http://repo.mcstats.org/content/repositories/public</url>
-       </repository>
-       <repository>
            <id>bukkit-repo</id>
-           <url>http://repo.bukkit.org/content/groups/public/</url>
+          <url>http://repo.bukkit.org/content/groups/public/</url>
        </repository>
        <repository>
            <id>vault-repo</id>
@@ -59,15 +44,9 @@
        <dependency>
            <groupId>org.bukkit</groupId>
            <artifactId>bukkit</artifactId>
-           <version>1.7.2-R0.3</version>
+           <version>1.7.9-R0.2</version>
            <type>jar</type>
            <scope>provided</scope>
-       </dependency>
-       <dependency>
-           <groupId>org.mcstats.bukkit</groupId>
-           <artifactId>metrics</artifactId>
-           <version>R7</version>
-           <scope>compile</scope>
        </dependency>
        <dependency>
             <groupId>net.milkbowl.vault</groupId>
