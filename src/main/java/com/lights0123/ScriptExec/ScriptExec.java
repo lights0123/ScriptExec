@@ -1,5 +1,4 @@
 package com.lights0123.ScriptExec;
-
 import java.io.IOException;
 
 import net.milkbowl.vault.permission.Permission;
