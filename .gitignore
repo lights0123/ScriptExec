@@ -1,4 +1,9 @@
 /target/
-bin
-.metadata
 .settings
+.idea/
+*.iml
+classes/
+src/main/java/META-INF/
+src/main/resources/
+src/test/
+run.js
