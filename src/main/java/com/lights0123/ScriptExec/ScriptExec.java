@@ -5,8 +5,11 @@ import net.milkbowl.vault.permission.Permission;
 
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-public final class ScriptExec extends JavaPlugin{
-	static boolean hasPerms=false;
+import org.mcstats.Metrics;
+import org.mcstats.Metrics.Graph;
+
+public final class ScriptExec extends JavaPlugin {
+	static boolean hasPerms = false;
 	static Permission perms;
 	@Override
 	public void onEnable() {
@@ -24,6 +27,21 @@ public final class ScriptExec extends JavaPlugin{
 			hasPerms = false;
 		} else {
 			hasPerms = true;
+		}
+		try {
+			Metrics metrics = new Metrics(this);
+			Graph VersionDemographics = metrics.createGraph("Version Demographics");
+			VersionDemographics.addPlotter(new Metrics.Plotter(getDescription().getVersion()) {
+
+				@Override
+				public int getValue() {
+					return 1;
+				}
+
+			});
+			metrics.start();
+		} catch (IOException e) {
+			//Metrics not available :-(
 		}
 		this.getCommand("se").setExecutor(new CommandExecutor(this));
 	}
